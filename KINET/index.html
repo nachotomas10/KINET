@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kinet - Resistencia y Precisión</title>
+<title>Kinet</title>
+
 <style>
+/* saco los margenes que vienen por defecto */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* fondo negro con un brillo dorado arriba */
 body {
   background-color: #09090b;
   background-image: radial-gradient(circle at 50% 12%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-family: Arial, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +26,7 @@ body {
   padding: 25px 15px;
 }
 
+/* parte de arriba con el logo */
 .header {
   text-align: center;
   margin-bottom: 25px;
@@ -47,6 +51,7 @@ body {
   margin-top: 5px;
 }
 
+/* cada pantalla (inicio, kinet y apex) */
 .pantalla {
   display: flex;
   flex-direction: column;
@@ -55,6 +60,7 @@ body {
   max-width: 480px;
 }
 
+/* las tarjetas */
 .card {
   background-color: #121216;
   border: 2px solid #282832;
@@ -63,7 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: 0.25s;
 }
 
 @media (hover: hover) {
@@ -97,6 +103,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* listas con puntito dorado */
 .lista {
   list-style: none;
   margin-bottom: 25px;
@@ -121,14 +128,13 @@ body {
 }
 
 .lista strong {
-  color: #ffffff;
+  color: white;
 }
 
+/* botones */
 .btn {
-  display: block;
   width: 100%;
   padding: 14px 0;
-  text-align: center;
   color: #d4af37;
   background-color: transparent;
   border: 2px solid #d4af37;
@@ -138,23 +144,21 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: 0.2s;
   margin-top: auto;
 }
 
 .btn:hover {
   background-color: #d4af37;
-  color: #000000;
+  color: black;
   box-shadow: 0px 0px 20px rgba(212, 175, 55, 0.4);
-}
-
-.oculto {
-  display: none !important;
 }
 </style>
 </head>
+
 <body>
 
+<!-- LOGO -->
 <div class="header">
   <svg viewBox="0 0 520 180" class="logo" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -178,7 +182,9 @@ body {
   <p class="subtitulo">RESISTENCIA, PRECISIÓN Y ESTILO</p>
 </div>
 
-<div id="pantalla-inicio" class="pantalla">
+<!-- PANTALLA DE INICIO -->
+<div id="inicio" class="pantalla">
+
   <div class="card">
     <h2 class="titulo">KINET</h2>
     <p class="texto">Diseñada para el uso cotidiano y actividades al aire libre moderadas. Fabricada en plástico resistente de impresión 3D, ideal para el día a día sin llegar a la exigencia extrema del acero.</p>
@@ -187,7 +193,7 @@ body {
       <li>Sistema compacto de pedernales para emergencias.</li>
       <li>Brújula de orientación integrada en el diseño.</li>
     </ul>
-    <button type="button" class="btn" onclick="mostrar('pantalla-kinet')">Ver detalles</button>
+    <button class="btn" onclick="verKinet()">Ver detalles</button>
   </div>
 
   <div class="card">
@@ -198,11 +204,13 @@ body {
       <li>Cierre multifunción con herramientas de precisión.</li>
       <li>Resistencia máxima para uso constante e intenso.</li>
     </ul>
-    <button type="button" class="btn" onclick="mostrar('pantalla-apex')">Ver detalles</button>
+    <button class="btn" onclick="verApex()">Ver detalles</button>
   </div>
+
 </div>
 
-<div id="pantalla-kinet" class="pantalla oculto">
+<!-- DETALLE DE KINET -->
+<div id="kinet" class="pantalla" style="display: none;">
   <div class="card">
     <h2 class="titulo">KINET - ESTÁNDAR</h2>
     <p class="texto">Modelo ligero enfocado en la practicidad diaria. Su construcción liviana en polímero es perfecta para un uso moderado y actividades al aire libre no extremas.</p>
@@ -214,11 +222,12 @@ body {
       <li><strong>Navegación:</strong> Brújula integrada en la estructura.</li>
       <li><strong>Supervivencia:</strong> Barras de pedernal para encendido de fuego.</li>
     </ul>
-    <button type="button" class="btn" onclick="mostrar('pantalla-inicio')">Volver al inicio</button>
+    <button class="btn" onclick="volver()">Volver al inicio</button>
   </div>
 </div>
 
-<div id="pantalla-apex" class="pantalla oculto">
+<!-- DETALLE DE APEX -->
+<div id="apex" class="pantalla" style="display: none;">
   <div class="card">
     <h2 class="titulo">KINET APEX - PROFESIONAL</h2>
     <p class="texto">Diseño de alta exigencia táctica. Fabricado para soportar condiciones extremas, desgaste prolongado y un uso severo sin perder integridad estructural.</p>
@@ -230,18 +239,31 @@ body {
       <li><strong>Medición:</strong> Regla graduada incorporada en los bordes.</li>
       <li><strong>Rendimiento:</strong> Preparado para uso intensivo diario e impactos severos.</li>
     </ul>
-    <button type="button" class="btn" onclick="mostrar('pantalla-inicio')">Volver al inicio</button>
+    <button class="btn" onclick="volver()">Volver al inicio</button>
   </div>
 </div>
 
 <script>
-function mostrar(id) {
-  var pantallas = document.querySelectorAll('.pantalla');
-  for (var i = 0; i < pantallas.length; i++) {
-    pantallas[i].classList.add('oculto');
-  }
-  document.getElementById(id).classList.remove('oculto');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+// cuando toco "ver detalles" de la Kinet
+function verKinet() {
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("kinet").style.display = "flex";
+  window.scrollTo(0, 0);
+}
+
+// cuando toco "ver detalles" de la Apex
+function verApex() {
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("apex").style.display = "flex";
+  window.scrollTo(0, 0);
+}
+
+// boton de volver
+function volver() {
+  document.getElementById("kinet").style.display = "none";
+  document.getElementById("apex").style.display = "none";
+  document.getElementById("inicio").style.display = "flex";
+  window.scrollTo(0, 0);
 }
 </script>
 
