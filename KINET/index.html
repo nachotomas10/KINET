@@ -14,8 +14,8 @@
 body {
   background-color: #09090b;
   background-image: radial-gradient(circle at 50% 12%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
-  color: white;
-  font-family: Arial, sans-serif;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ body {
   padding: 25px 15px;
 }
 
-header {
+.header {
   text-align: center;
   margin-bottom: 25px;
   width: 100%;
@@ -32,14 +32,14 @@ header {
   align-items: center;
 }
 
-header svg {
+.logo {
   width: 100%;
   max-width: 340px;
   height: auto;
   filter: drop-shadow(0px 0px 12px rgba(212, 175, 55, 0.3));
 }
 
-header p {
+.subtitulo {
   font-size: 13px;
   letter-spacing: 4px;
   color: #b0b0bb;
@@ -63,7 +63,7 @@ header p {
   display: flex;
   flex-direction: column;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
-  transition: 0.25s;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 @media (hover: hover) {
@@ -74,7 +74,7 @@ header p {
   }
 }
 
-.card h2 {
+.titulo {
   font-size: 26px;
   letter-spacing: 3px;
   margin-bottom: 14px;
@@ -82,26 +82,27 @@ header p {
   padding-bottom: 10px;
 }
 
-.card h3 {
+.seccion {
   font-size: 16px;
   color: #d4af37;
   margin: 20px 0 12px 0;
+  font-weight: bold;
   letter-spacing: 1px;
 }
 
-.card p {
+.texto {
   font-size: 15px;
   line-height: 1.6;
   color: #b0b0bb;
   margin-bottom: 20px;
 }
 
-.card ul {
+.lista {
   list-style: none;
   margin-bottom: 25px;
 }
 
-.card li {
+.lista li {
   font-size: 14px;
   color: #ececef;
   line-height: 1.5;
@@ -110,7 +111,7 @@ header p {
   position: relative;
 }
 
-.card li::before {
+.lista li::before {
   content: "•";
   color: #d4af37;
   position: absolute;
@@ -119,13 +120,15 @@ header p {
   font-size: 22px;
 }
 
-.card li strong {
-  color: white;
+.lista strong {
+  color: #ffffff;
 }
 
-button {
+.btn {
+  display: block;
   width: 100%;
   padding: 14px 0;
+  text-align: center;
   color: #d4af37;
   background-color: transparent;
   border: 2px solid #d4af37;
@@ -135,25 +138,25 @@ button {
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   margin-top: auto;
 }
 
-button:hover {
+.btn:hover {
   background-color: #d4af37;
-  color: black;
+  color: #000000;
   box-shadow: 0px 0px 20px rgba(212, 175, 55, 0.4);
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }
 </style>
 </head>
 <body>
 
-<header>
-  <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+<div class="header">
+  <svg viewBox="0 0 520 180" class="logo" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="dorado" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#fdf0a6" />
@@ -172,73 +175,71 @@ button:hover {
     </g>
     <text x="215" y="112" font-family="Arial, sans-serif" font-weight="900" font-size="58" fill="url(#dorado)" letter-spacing="8">KINET</text>
   </svg>
-  <p>RESISTENCIA, PRECISIÓN Y ESTILO</p>
-</header>
+  <p class="subtitulo">RESISTENCIA, PRECISIÓN Y ESTILO</p>
+</div>
 
-<!-- inicio -->
-<div id="inicio" class="pantalla">
+<div id="pantalla-inicio" class="pantalla">
   <div class="card">
-    <h2>KINET</h2>
-    <p>Diseñada para el uso cotidiano y actividades al aire libre moderadas. Fabricada en plástico resistente de impresión 3D, ideal para el día a día sin llegar a la exigencia extrema del acero.</p>
-    <ul>
+    <h2 class="titulo">KINET</h2>
+    <p class="texto">Diseñada para el uso cotidiano y actividades al aire libre moderadas. Fabricada en plástico resistente de impresión 3D, ideal para el día a día sin llegar a la exigencia extrema del acero.</p>
+    <ul class="lista">
       <li>Hebilla multifunción con hoja de aluminio y plástico.</li>
       <li>Sistema compacto de pedernales para emergencias.</li>
       <li>Brújula de orientación integrada en el diseño.</li>
     </ul>
-    <button onclick="mostrar('kinet')">Ver detalles</button>
+    <button type="button" class="btn" onclick="mostrar('pantalla-kinet')">Ver detalles</button>
   </div>
 
   <div class="card">
-    <h2>KINET APEX</h2>
-    <p>Modelo totalmente de uso profesional. Pensado para quienes enfrentan situaciones extremas, exploración intensa o exigencias físicas diarias al aire libre.</p>
-    <ul>
+    <h2 class="titulo">KINET APEX</h2>
+    <p class="texto">Modelo totalmente de uso profesional. Pensado para quienes enfrentan situaciones extremas, exploración intensa o exigencias físicas diarias al aire libre.</p>
+    <ul class="lista">
       <li>Eslabones construidos 100% en acero inoxidable.</li>
       <li>Cierre multifunción con herramientas de precisión.</li>
       <li>Resistencia máxima para uso constante e intenso.</li>
     </ul>
-    <button onclick="mostrar('apex')">Ver detalles</button>
+    <button type="button" class="btn" onclick="mostrar('pantalla-apex')">Ver detalles</button>
   </div>
 </div>
 
-<!-- kinet -->
-<div id="kinet" class="pantalla oculto">
+<div id="pantalla-kinet" class="pantalla oculto">
   <div class="card">
-    <h2>KINET - ESTÁNDAR</h2>
-    <p>Modelo ligero enfocado en la practicidad diaria. Su construcción liviana en polímero es perfecta para un uso moderado y actividades al aire libre no extremas.</p>
-    <h3>Materiales y Especificaciones</h3>
-    <ul>
+    <h2 class="titulo">KINET - ESTÁNDAR</h2>
+    <p class="texto">Modelo ligero enfocado en la practicidad diaria. Su construcción liviana en polímero es perfecta para un uso moderado y actividades al aire libre no extremas.</p>
+    <p class="seccion">Materiales y Especificaciones</p>
+    <ul class="lista">
       <li><strong>Cuerpo principal:</strong> Fabricado casi en su totalidad con plástico resistente impreso en 3D.</li>
       <li><strong>Ajuste modular:</strong> Sistema de eslabones removibles para regular la medida fácilmente.</li>
       <li><strong>Hebilla táctica:</strong> Hoja de corte fabricada en combinación de aluminio y plástico.</li>
       <li><strong>Navegación:</strong> Brújula integrada en la estructura.</li>
       <li><strong>Supervivencia:</strong> Barras de pedernal para encendido de fuego.</li>
     </ul>
-    <button onclick="mostrar('inicio')">Volver al inicio</button>
+    <button type="button" class="btn" onclick="mostrar('pantalla-inicio')">Volver al inicio</button>
   </div>
 </div>
 
-<!-- apex -->
-<div id="apex" class="pantalla oculto">
+<div id="pantalla-apex" class="pantalla oculto">
   <div class="card">
-    <h2>KINET APEX - PROFESIONAL</h2>
-    <p>Diseño de alta exigencia táctica. Fabricado para soportar condiciones extremas, desgaste prolongado y un uso severo sin perder integridad estructural.</p>
-    <h3>Materiales y Herramientas Añadidas</h3>
-    <ul>
+    <h2 class="titulo">KINET APEX - PROFESIONAL</h2>
+    <p class="texto">Diseño de alta exigencia táctica. Fabricado para soportar condiciones extremas, desgaste prolongado y un uso severo sin perder integridad estructural.</p>
+    <p class="seccion">Materiales y Herramientas Añadidas</p>
+    <ul class="lista">
       <li><strong>Construcción:</strong> Eslabones articulados fabricados íntegramente en acero inoxidable.</li>
       <li><strong>Equipamiento base:</strong> Mantiene todos los componentes de la versión estándar (Brújula, pedernales y hoja de hebilla).</li>
       <li><strong>Herramienta de ajuste:</strong> Destornillador de punta plana integrado.</li>
       <li><strong>Medición:</strong> Regla graduada incorporada en los bordes.</li>
       <li><strong>Rendimiento:</strong> Preparado para uso intensivo diario e impactos severos.</li>
     </ul>
-    <button onclick="mostrar('inicio')">Volver al inicio</button>
+    <button type="button" class="btn" onclick="mostrar('pantalla-inicio')">Volver al inicio</button>
   </div>
 </div>
 
 <script>
 function mostrar(id) {
-  document.getElementById('inicio').classList.add('oculto');
-  document.getElementById('kinet').classList.add('oculto');
-  document.getElementById('apex').classList.add('oculto');
+  var pantallas = document.querySelectorAll('.pantalla');
+  for (var i = 0; i < pantallas.length; i++) {
+    pantallas[i].classList.add('oculto');
+  }
   document.getElementById(id).classList.remove('oculto');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
