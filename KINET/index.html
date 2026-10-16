@@ -2,256 +2,206 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kinet</title>
-
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --bg:#09090b; --card:#121216; --line:#282832; --gold:#d4af37; --gold-soft:rgba(212,175,55,.3);
+  --text:#ececef; --muted:#b0b0bb;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
-
-body {
-  background-color: #09090b;
-  background-image: radial-gradient(circle at 50% 12%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
-  color: white;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px 15px;
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:inherit}
+body{
+  background-color:var(--bg);
+  background-image:radial-gradient(circle at 50% 12%,rgba(212,175,55,.15) 0%,transparent 60%);
+  color:#fff; font-family:Arial,Helvetica,sans-serif;
+  display:flex; flex-direction:column; align-items:center; padding:25px 15px 40px;
 }
-
-.header {
-  text-align: center;
-  margin-bottom: 25px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo {
-  width: 100%;
-  max-width: 340px;
-  height: auto;
-  filter: drop-shadow(0px 0px 12px rgba(212, 175, 55, 0.3));
-}
-
-.subtitulo {
-  font-size: 13px;
-  letter-spacing: 4px;
-  color: #b0b0bb;
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-.pantalla {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  width: 100%;
-  max-width: 480px;
-}
-
-.card {
-  background-color: #121216;
-  border: 2px solid #282832;
-  border-radius: 16px;
-  padding: 25px 20px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
-  transition: 0.25s;
-}
-
-@media (hover: hover) {
-  .card:hover {
-    transform: translateY(-4px) scale(1.01);
-    border-color: #d4af37;
-    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.9), 0px 0px 25px rgba(212, 175, 55, 0.3);
-  }
-}
-
-.titulo {
-  font-size: 26px;
-  letter-spacing: 3px;
-  margin-bottom: 14px;
-  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-  padding-bottom: 10px;
-}
-
-.seccion {
-  font-size: 16px;
-  color: #d4af37;
-  margin: 20px 0 12px 0;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.texto {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #b0b0bb;
-  margin-bottom: 20px;
-}
-
-.lista {
-  list-style: none;
-  margin-bottom: 25px;
-}
-
-.lista li {
-  font-size: 14px;
-  color: #ececef;
-  line-height: 1.5;
-  margin-bottom: 12px;
-  padding-left: 22px;
-  position: relative;
-}
-
-.lista li::before {
-  content: "•";
-  color: #d4af37;
-  position: absolute;
-  left: 0;
-  top: -2px;
-  font-size: 22px;
-}
-
-.lista strong {
-  color: white;
-}
-
-.btn {
-  width: 100%;
-  padding: 14px 0;
-  color: #d4af37;
-  background-color: transparent;
-  border: 2px solid #d4af37;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-top: auto;
-}
-
-.btn:hover {
-  background-color: #d4af37;
-  color: black;
-  box-shadow: 0px 0px 20px rgba(212, 175, 55, 0.4);
-}
+.header{text-align:center;margin-bottom:25px;width:100%;display:flex;flex-direction:column;align-items:center}
+.logo{width:100%;max-width:340px;height:auto;filter:drop-shadow(0 0 12px rgba(212,175,55,.3))}
+.subtitulo{font-size:13px;letter-spacing:4px;color:var(--muted);font-weight:bold;margin-top:5px}
+.pantalla{display:flex;flex-direction:column;gap:22px;width:100%;max-width:480px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:25px 20px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.8);transition:.25s}
+.card.destacada{border-color:var(--gold-soft)}
+@media (hover:hover){.card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 15px 40px rgba(0,0,0,.9),0 0 25px rgba(212,175,55,.3)}}
+.etiqueta{align-self:flex-start;font-size:11px;font-weight:bold;letter-spacing:2px;color:#000;background:var(--gold);padding:4px 10px;border-radius:20px;margin-bottom:12px}
+.titulo{font-size:25px;letter-spacing:3px;margin-bottom:14px;border-bottom:2px solid var(--gold-soft);padding-bottom:10px}
+.seccion{font-size:15px;color:var(--gold);margin:18px 0 12px;font-weight:bold;letter-spacing:1px}
+.texto{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:16px}
+.texto strong{color:#fff}
+.lista{list-style:none;margin-bottom:18px}
+.lista li{font-size:14px;color:var(--text);line-height:1.5;margin-bottom:11px;padding-left:22px;position:relative}
+.lista li::before{content:"•";color:var(--gold);position:absolute;left:0;top:-2px;font-size:22px}
+.lista.fuera li::before{content:"+"}
+.lista strong{color:#fff}
+.aviso{border:1px solid var(--gold-soft);background:rgba(212,175,55,.07);border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:14px;line-height:1.6;color:var(--text)}
+.aviso b{color:var(--gold)}
+.precio{font-size:15px;color:var(--muted);margin:2px 0 18px}
+.precio b{color:#fff;font-size:22px;letter-spacing:1px}
+.btn{display:block;width:100%;padding:14px 0;text-align:center;text-decoration:none;color:var(--gold);background:transparent;border:2px solid var(--gold);border-radius:8px;font:bold 15px Arial,Helvetica,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;margin-top:auto}
+.btn+.btn{margin-top:12px}
+.btn:hover,.btn.lleno{background:var(--gold);color:#000}
+.btn.lleno:hover{box-shadow:0 0 20px rgba(212,175,55,.45)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.contacto{font-size:13px;line-height:1.6;color:var(--muted);text-align:center;margin-top:16px}
+.contacto a{color:var(--gold);text-decoration:none;font-weight:bold}
+.comp{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:18px}
+.comp th,.comp td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.comp th{color:var(--gold);font-weight:bold}
+.comp td:first-child{color:var(--muted)}
+.qr{align-items:center;text-align:center}
+#qrbox{background:#fff;padding:12px;border-radius:12px;margin:6px 0 14px;line-height:0}
+#qrbox img,#qrbox canvas{max-width:100%;height:auto}
+.qrurl{font-size:12px;color:var(--muted);word-break:break-all}
 </style>
 </head>
-
 <body>
 
 <div class="header">
-  <svg viewBox="0 0 520 180" class="logo" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="dorado" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#fdf0a6" />
-        <stop offset="45%" stop-color="#d4af37" />
-        <stop offset="100%" stop-color="#8a6d1b" />
-      </linearGradient>
-    </defs>
+  <svg viewBox="0 0 520 180" class="logo" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kinet">
+    <defs><linearGradient id="dorado" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf0a6"/><stop offset="45%" stop-color="#d4af37"/><stop offset="100%" stop-color="#8a6d1b"/>
+    </linearGradient></defs>
     <polygon points="110,12 180,52 180,128 110,168 40,128 40,52" fill="none" stroke="url(#dorado)" stroke-width="6" stroke-linejoin="round"/>
     <g fill="url(#dorado)">
-      <polygon points="68,52 82,52 82,86 68,89"/>
-      <polygon points="68,94 82,91 82,128 68,128"/>
-      <polygon points="88,84 132,52 146,52 96,90"/>
-      <polygon points="102,82 148,68 140,78 106,90"/>
-      <polygon points="88,96 96,90 146,128 132,128"/>
-      <polygon points="106,90 140,102 148,112 102,98"/>
+      <polygon points="68,52 82,52 82,86 68,89"/><polygon points="68,94 82,91 82,128 68,128"/>
+      <polygon points="88,84 132,52 146,52 96,90"/><polygon points="102,82 148,68 140,78 106,90"/>
+      <polygon points="88,96 96,90 146,128 132,128"/><polygon points="106,90 140,102 148,112 102,98"/>
     </g>
     <text x="215" y="112" font-family="Arial, sans-serif" font-weight="900" font-size="58" fill="url(#dorado)" letter-spacing="8">KINET</text>
   </svg>
   <p class="subtitulo">RESISTENCIA, PRECISIÓN Y ESTILO</p>
 </div>
 
+<!-- INICIO -->
 <div id="inicio" class="pantalla">
+
+  <div class="card destacada">
+    <span class="etiqueta">NUEVA · BETA · PREORDEN</span>
+    <h2 class="titulo">KINET APEX</h2>
+    <p class="texto">La evolución natural de Kinet. Más fina, más cómoda y con una terminación premium que se nota desde el primer momento que la tenés en la muñeca.</p>
+    <ul class="lista">
+      <li>Eslabones 100% acero inoxidable.</li>
+      <li>Hebilla cuchillo en aleación de aluminio y polímero.</li>
+      <li>Destornilladores Philips y punta plana incluidos.</li>
+    </ul>
+    <p class="precio">Valor aproximado: <b>$90.000</b> ARS</p>
+    <button class="btn lleno" onclick="ir('apex')">Descubrir la Apex</button>
+  </div>
 
   <div class="card">
     <h2 class="titulo">KINET</h2>
-    <p class="texto">Diseñada para el uso cotidiano y actividades al aire libre moderadas. Fabricada en plástico resistente de impresión 3D, ideal para el día a día sin llegar a la exigencia extrema del acero.</p>
+    <p class="texto">Pensada para el uso cotidiano y las salidas al aire libre moderadas. Plástico resistente de impresión 3D, ideal para el día a día.</p>
     <ul class="lista">
       <li>Hebilla multifunción con hoja de aluminio y plástico.</li>
       <li>Sistema compacto de pedernales para emergencias.</li>
-      <li>Brújula de orientación integrada en el diseño.</li>
+      <li>Brújula de orientación integrada.</li>
     </ul>
-    <button class="btn" onclick="verKinet()">Ver detalles</button>
+    <button class="btn" onclick="ir('kinet')">Ver detalles</button>
   </div>
 
-  <div class="card">
-    <h2 class="titulo">KINET APEX</h2>
-    <p class="texto">Modelo totalmente de uso profesional. Pensado para quienes enfrentan situaciones extremas, exploración intensa o exigencias físicas diarias al aire libre.</p>
-    <ul class="lista">
-      <li>Eslabones construidos 100% en acero inoxidable.</li>
-      <li>Hebilla cuchillo, aleacion de aluminio y polimero.</li>
-      <li>Resistencia máxima para uso constante e intenso.</li>
-    </ul>
-    <button class="btn" onclick="verApex()">Ver detalles</button>
+  <div class="card qr">
+    <h2 class="titulo" style="width:100%">COMPARTÍ KINET</h2>
+    <p class="texto">Escaneá el código para abrir esta página desde cualquier celular.</p>
+    <div id="qrbox" aria-label="Código QR de la página"></div>
+    <p class="qrurl" id="qrurl"></p>
   </div>
 
 </div>
 
-<div id="kinet" class="pantalla" style="display: none;">
+<!-- KINET -->
+<div id="kinet" class="pantalla" style="display:none">
   <div class="card">
-    <h2 class="titulo">KINET - ESTÁNDAR</h2>
-    <p class="texto">Modelo ligero enfocado en la practicidad diaria. Su construcción liviana de plastico resistente es perfecta para un uso moderado y actividades al aire libre no extremas.</p>
-    <p class="seccion">Materiales y Especificaciones</p>
+    <h2 class="titulo">KINET · ESTÁNDAR</h2>
+    <p class="texto">Un modelo liviano enfocado en la practicidad diaria. Su construcción en plástico resistente es perfecta para un uso moderado y actividades al aire libre no extremas.</p>
+
+    <p class="seccion">INCLUIDO EN LA PULSERA</p>
     <ul class="lista">
-      <li><strong>Cuerpo principal:</strong> Fabricado casi en su totalidad con un plástico resistente impreso en 3D.</li>
-      <li><strong>Ajuste modular:</strong> Sistema de eslabones removibles para regular la medida fácilmente.</li>
-      <li><strong>Hebilla táctica:</strong> Hoja de corte fabricada en combinación de aluminio y plástico.</li>
-      <li><strong>Navegación:</strong> Brújula integrada en la estructura.</li>
-      <li><strong>Supervivencia:</strong> Barras de pedernal para encendido de fuego.</li>
+      <li><strong>Cuerpo principal:</strong> plástico resistente impreso en 3D.</li>
+      <li><strong>Ajuste modular:</strong> eslabones removibles para regular la medida fácilmente.</li>
+      <li><strong>Hebilla táctica:</strong> hoja de corte de aluminio y plástico.</li>
+      <li><strong>Navegación:</strong> brújula integrada en la estructura.</li>
+      <li><strong>Supervivencia:</strong> barras de pedernal para encender fuego.</li>
     </ul>
-    <button class="btn" onclick="volver()">Volver al inicio</button>
+
+    <div class="aviso"><b>¿Querés más?</b> La <b>Kinet Apex</b> da el salto en diseño, comodidad y resistencia. Vale la pena conocerla.</div>
+    <button class="btn lleno" onclick="ir('apex')">Conocer la Apex</button>
+    <button class="btn" onclick="ir('inicio')">Volver al inicio</button>
+    <p class="contacto">Cualquier consulta, escribinos al <a href="https://wa.me/5491125682010" target="_blank" rel="noopener">+54 9 11 2568-2010</a></p>
   </div>
 </div>
 
-<div id="apex" class="pantalla" style="display: none;">
-  <div class="card">
-    <h2 class="titulo">KINET APEX - PROFESIONAL</h2>
-    <p class="texto">Diseño de alta exigencia. Fabricado para aguantar condiciones extremas, desgaste prolongado y un uso severo sin perder integridad estructural.</p>
-    <p class="seccion">Materiales y Herramientas Añadidas</p>
+<!-- APEX -->
+<div id="apex" class="pantalla" style="display:none">
+  <div class="card destacada">
+    <span class="etiqueta">BETA · PREORDEN</span>
+    <h2 class="titulo">KINET APEX · PROFESIONAL</h2>
+    <p class="texto">Diseñada para quienes exigen más. La Apex es <strong>muchísimo más premium</strong> en diseño, <strong>más delgada y más cómoda</strong>, y está construida para aguantar condiciones extremas y uso severo sin perder integridad. Una vez que la probás, es difícil volver a otra.</p>
+
+    <p class="precio">Valor aproximado: <b>$90.000</b> ARS</p>
+
+    <div class="aviso"><b>Se adquiere por preorden.</b> La Apex admite personalización hasta cierto punto, y se pueden sumar algunos detalles. Todo eso se conversa al momento de hacer el pedido.</div>
+
+    <p class="seccion">POR QUÉ ELEGIRLA</p>
+    <table class="comp">
+      <tr><th></th><th>Kinet</th><th>Apex</th></tr>
+      <tr><td>Diseño</td><td>Funcional</td><td>Premium</td></tr>
+      <tr><td>Perfil</td><td>Estándar</td><td>Más delgada y cómoda</td></tr>
+      <tr><td>Eslabones</td><td>Plástico 3D</td><td>Acero inoxidable</td></tr>
+      <tr><td>Resistencia</td><td>Uso moderado</td><td>Uso intenso y extremo</td></tr>
+      <tr><td>Herramientas</td><td>Hoja de hebilla</td><td>Hoja + 2 destornilladores</td></tr>
+    </table>
+
+    <p class="seccion">INCLUIDO EN LA PULSERA</p>
     <ul class="lista">
-      <li><strong>Construcción:</strong> Eslabones articulados fabricados en su totalidad de acero inoxidable.</li>
-      <li><strong>Equipamiento base:</strong> Mantiene todos los componentes de la versión estándar (Brújula, pedernales y una hoja en la hebilla).</li>
-      <li><strong>Herramienta de ajuste:</strong> Destornillador de punta plana integrado.</li>
-      <li><strong>Medición:</strong> Accesorio separado, regla de acero inoxidable con 6 en 1.</li>
-      <li><strong>Rendimiento:</strong> Estructura perparada para uso intensivo diario e impactos severos.</li>
+      <li><strong>Eslabones articulados</strong> 100% en acero inoxidable.</li>
+      <li><strong>Hebilla cuchillo</strong> en aleación de aluminio y polímero.</li>
+      <li><strong>Brújula</strong> y <strong>pedernales</strong> de la versión estándar.</li>
+      <li><strong>Destornillador Philips.</strong></li>
+      <li><strong>Destornillador de punta plana.</strong></li>
     </ul>
-    <button class="btn" onclick="volver()">Volver al inicio</button>
+
+    <p class="seccion">INCLUIDO APARTE · POR TIEMPO LIMITADO</p>
+    <ul class="lista fuera">
+      <li><strong>Regla 6 en 1</strong> de acero inoxidable.</li>
+      <li><strong>Sierra de cadena.</strong></li>
+    </ul>
+    <p class="texto">Todo lo anterior ya viene de base. Si querés sumar algo más al producto, consultanos.</p>
+
+    <div class="aviso"><b>Producto en versión beta.</b> Cualquier detalle puede ajustarse y mejorarse. Lo único confirmado y definitivo es el <b>material utilizado</b> y la <b>hebilla</b>. Esa es justamente la ventaja de preordenar: te sumás a la primera tanda y podés opinar sobre el resultado.</div>
+
+    <a class="btn lleno" href="https://wa.me/5491125682010?text=Hola!%20Quiero%20preordenar%20la%20Kinet%20Apex" target="_blank" rel="noopener">Preordenar por WhatsApp</a>
+    <a class="btn" href="https://wa.me/5491125682010?text=Hola!%20Tengo%20una%20consulta%20sobre%20la%20Kinet%20Apex" target="_blank" rel="noopener">Hacer una consulta</a>
+    <button class="btn" onclick="ir('inicio')">Volver al inicio</button>
+    <p class="contacto">Dudas sobre el diseño, ideas para agregarle algo o cualquier otra consulta: <a href="https://wa.me/5491125682010" target="_blank" rel="noopener">+54 9 11 2568-2010</a></p>
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-function verKinet() {
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("kinet").style.display = "flex";
-  window.scrollTo(0, 0);
+// Dirección de la página: el código QR lleva siempre acá.
+var URL_PAGINA = "https://k-i-n-e-t.onrender.com/";
+
+function ir(id){
+  ["inicio","kinet","apex"].forEach(function(p){
+    document.getElementById(p).style.display = (p===id) ? "flex" : "none";
+  });
+  window.scrollTo(0,0);
 }
 
-function verApex() {
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("apex").style.display = "flex";
-  window.scrollTo(0, 0);
-}
-
-function volver() {
-  document.getElementById("kinet").style.display = "none";
-  document.getElementById("apex").style.display = "none";
-  document.getElementById("inicio").style.display = "flex";
-  window.scrollTo(0, 0);
-}
+(function(){
+  var url = URL_PAGINA || (location.href || "").split("#")[0];
+  var box = document.getElementById("qrbox");
+  document.getElementById("qrurl").textContent = url;
+  try{
+    new QRCode(box,{text:url,width:200,height:200,colorDark:"#000000",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});
+  }catch(e){
+    box.style.cssText = "background:none;padding:0";
+    box.textContent = "No se pudo generar el QR. Abrí: " + url;
+  }
+})();
 </script>
-
 </body>
 </html>
